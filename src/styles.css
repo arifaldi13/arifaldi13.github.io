@@ -1,0 +1,211 @@
+:root {
+  color: #1a1a18;
+  background: #f4f0e8;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portal-shell {
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    linear-gradient(110deg, rgba(238, 91, 63, 0.16), transparent 34%),
+    linear-gradient(180deg, #fbf8f1 0%, #ede7da 100%);
+}
+
+.hero {
+  display: grid;
+  min-height: 68svh;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 42vw);
+  align-items: stretch;
+}
+
+.hero-copy {
+  display: flex;
+  max-width: 720px;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 8vw, 96px);
+  animation: rise-in 650ms ease both;
+}
+
+.kicker {
+  width: fit-content;
+  border-bottom: 1px solid rgba(26, 26, 24, 0.28);
+  color: #6b6a63;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+h1 {
+  margin: 26px 0 18px;
+  color: #171714;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 780;
+  letter-spacing: 0;
+  line-height: 0.82;
+}
+
+p {
+  max-width: 520px;
+  margin: 0;
+  color: #595852;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.signature-panel {
+  position: relative;
+  display: grid;
+  min-height: 100%;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(150deg, rgba(28, 98, 80, 0.86), rgba(20, 52, 59, 0.96)),
+    #164637;
+  isolation: isolate;
+}
+
+.signature-panel::before {
+  position: absolute;
+  inset: 9%;
+  border: 1px solid rgba(244, 240, 232, 0.24);
+  content: '';
+  transform: rotate(-4deg);
+}
+
+.signature-panel span {
+  color: #f6efe2;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(12rem, 30vw, 34rem);
+  line-height: 0.8;
+  opacity: 0.95;
+  transform: translateY(-2%);
+}
+
+.signature-panel div {
+  position: absolute;
+  right: 14%;
+  bottom: 16%;
+  width: clamp(80px, 12vw, 160px);
+  height: 6px;
+  background: #ee5b3f;
+  transform: rotate(-12deg);
+}
+
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(26, 26, 24, 0.14);
+}
+
+.destination-link {
+  position: relative;
+  display: grid;
+  min-height: 180px;
+  grid-template-columns: 40px minmax(0, 1fr) 34px;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(24px, 5vw, 58px);
+  border-right: 1px solid rgba(26, 26, 24, 0.14);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.destination-link:last-child {
+  border-right: 0;
+}
+
+.destination-link:hover,
+.destination-link:focus-visible {
+  background: #1a1a18;
+  color: #fbf8f1;
+  outline: 0;
+}
+
+.destination-link:hover .arrow,
+.destination-link:focus-visible .arrow {
+  transform: translateX(6px);
+}
+
+.destination-link span {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.destination-link small,
+.destination-link em {
+  color: currentColor;
+  font-style: normal;
+  opacity: 0.7;
+}
+
+.destination-link strong {
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.05;
+}
+
+.destination-link em {
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+.arrow {
+  transition: transform 180ms ease;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .signature-panel {
+    min-height: 260px;
+  }
+
+  .destinations {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-link {
+    min-height: 150px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(26, 26, 24, 0.14);
+    grid-template-columns: 34px minmax(0, 1fr) 28px;
+  }
+}
